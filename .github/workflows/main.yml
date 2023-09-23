@@ -1,0 +1,40 @@
+名称：云签入操作
+开：
+  推送：
+    分支机构：
+      - 主要
+  观看：
+    类型：已启动
+  时间表：
+    - cron： 35 3 * * *
+工作：
+  构建和部署：
+    运行时间：Ubuntu-latest
+    环境：用户
+    步骤：
+    - 用途：操作/checkout@v3
+    - 名称：设置节点.js环境
+      用途：操作/设置node@v3
+      与：
+        节点版本：14
+    - 名称：初始化
+      运行：npm 安装
+    - 名称：运行
+      ID：运行
+      用途：尼克-菲尔兹/retry@v2
+      环境：
+        TY_USER_NAME： ${{机密.TY_USER_NAME}}
+        TY_PASSWORD：${{机密。TY_PASSWORD}}
+        TY_USER_NAME1：${{机密。TY_USER_NAME1}}
+        TY_PASSWORD1：${{机密。TY_PASSWORD1}}
+        TY_USER_NAME2：${{机密。TY_USER_NAME2}}
+        TY_PASSWORD2：${{机密。TY_PASSWORD2}}
+        TY_USER_NAM3：${{机密。TY_USER_NAM3}}
+        TY_PASSWORD3：${{机密。TY_PASSWORD3}}
+        TY_USER_NAME4：${{机密。TY_USER_NAME4}}
+        TY_PASSWORD4：${{机密。TY_PASSWORD4}}
+        发送密钥： ${{secrets.发送密钥}}
+      与：
+        timeout_minutes：10
+        max_attempts： 3
+        命令： npm 启动
